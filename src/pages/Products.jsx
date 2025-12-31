@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import api from "../api/axios";
 import ProductCard from "../components/ProductCard";
+import "../styles/products.css";
+
 
 const Products = () => {
   const [products, setProducts] = useState([]);
@@ -49,3 +51,4 @@ const Products = () => {
 };
 
 export default Products;
+
