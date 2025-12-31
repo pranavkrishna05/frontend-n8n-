@@ -4,6 +4,7 @@ import ProductCard from "../components/ProductCard";
 import "../styles/products.css";
 
 
+
 const Products = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -51,4 +52,5 @@ const Products = () => {
 };
 
 export default Products;
+
 
