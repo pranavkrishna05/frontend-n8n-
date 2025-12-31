@@ -1,4 +1,6 @@
 import { useCart } from "../context/CartContext";
+import "../styles/products.css";
+
 
 const Cart = () => {
   const {
@@ -62,3 +64,4 @@ const Cart = () => {
 };
 
 export default Cart;
+
