@@ -1,3 +1,5 @@
+import "../styles/login.css";
+
 const Login = () => {
   return (
     <section className="page login-page">
@@ -19,3 +21,4 @@ const Login = () => {
 };
 
 export default Login;
+
