@@ -3,6 +3,7 @@ import "../styles/cart.css";
 
 
 
+
 const Cart = () => {
   const {
     cart,
@@ -65,5 +66,6 @@ const Cart = () => {
 };
 
 export default Cart;
+
 
 
