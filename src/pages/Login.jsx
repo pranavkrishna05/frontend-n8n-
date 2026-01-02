@@ -1,42 +1,22 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import axios from "../api/axios";
-import "../styles/login.css"; // corrected path
+import "../styles/login.css";
 
 const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const navigate = useNavigate();
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      await axios.post("/login", { email, password });
-      navigate("/");
-    } catch (error) {
-      console.error("Login failed", error);
-    }
-  };
-
   return (
-    <div className="login-container">
-      <form onSubmit={handleSubmit} className="login-form">
-        <h2>Login</h2>
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <button type="submit">Login</button>
-      </form>
-    </div>
+    <section className="page login-page">
+      <h2>Login to ShopSphere</h2>
+      <p className="subtitle">
+        Access your orders, wishlist and personalized recommendations.
+      </p>
+
+      <input type="email" placeholder="Email address" />
+      <input type="password" placeholder="Password" />
+
+      <button className="primary-btn">Login</button>
+
+      <p className="small-text">
+        New to ShopSphere? Create an account to start shopping.
+      </p>
+    </section>
   );
 };
 
