@@ -1,7 +1,7 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
-// Fix for react-dom resolution issue in Vite 7+
+// Fix for react-dom issue
 export default defineConfig({
   plugins: [react()],
   resolve: {
@@ -10,7 +10,7 @@ export default defineConfig({
     },
   },
   optimizeDeps: {
-    include: ['react-dom', 'react-dom/client'],
+    include: ['react', 'react-dom'],
   },
   server: {
     port: 5173,
