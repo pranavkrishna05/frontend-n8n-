@@ -1,12 +1,12 @@
 import React from "react";
-import ReactDOM from "react-dom/";
+import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
-import App from "./";
+import App from "./App.jsx";
 import { CartProvider } from "./context/CartContext";
 import "./index.css";          
 import "./styles/global.css"; 
 
-import React1
+
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <BrowserRouter>
