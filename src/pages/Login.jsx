@@ -1,4 +1,4 @@
-import "../styles/log.css";
+import "../styles/Login.css";
 
 
 const Login = () => {
@@ -22,5 +22,6 @@ const Login = () => {
 };
 
 export default Login;
+
 
 
