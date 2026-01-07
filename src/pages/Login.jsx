@@ -1,18 +1,27 @@
-import { useState } from 'react';
 import '../styles/Login.css';
+import { useState } from 'react';
 
 const Login = () => {
-  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+  const [strength, setStrength] = useState('');
 
-  const handleLogin = () => {
-    if (password.length < 8) {
-      setError('Password must be at least 8 characters long');
-      return;
-    }
-    setError('');
-    // Further login logic here
+  const evaluateStrength = (pwd) => {
+    if (!pwd) return '';
+    let strengthValue = 0;
+    if (pwd.length >= 6) strengthValue++;
+    if (/[A-Z]/.test(pwd)) strengthValue++;
+    if (/[0-9]/.test(pwd)) strengthValue++;
+    if (/[^A-Za-z0-9]/.test(pwd)) strengthValue++;
+
+    if (strengthValue <= 1) return 'Weak';
+    else if (strengthValue === 2) return 'Medium';
+    else return 'Strong';
+  };
+
+  const handlePasswordChange = (e) => {
+    const newPassword = e.target.value;
+    setPassword(newPassword);
+    setStrength(evaluateStrength(newPassword));
   };
 
   return (
@@ -22,25 +31,20 @@ const Login = () => {
         Access your orders, wishlist and personalized recommendations.
       </p>
 
-      <input
-        type="email"
-        placeholder="Email address"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
-
+      <input type="email" placeholder="Email address" />
       <input
         type="password"
         placeholder="Password"
         value={password}
-        onChange={(e) => setPassword(e.target.value)}
+        onChange={handlePasswordChange}
       />
+      {strength && (
+        <p className={`password-strength ${strength.toLowerCase()}`}>
+          Password Strength: {strength}
+        </p>
+      )}
 
-      {error && <p className="error-message">{error}</p>}
-
-      <button className="primary-btn" onClick={handleLogin}>
-        Login
-      </button>
+      <button className="primary-btn">Login</button>
 
       <p className="small-text">
         New to ShopSphere? Create an account to start shopping.
